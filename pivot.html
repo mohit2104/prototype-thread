@@ -1,0 +1,86 @@
+<script src="prototype.js"></script>
+<script>
+
+// start time 4:30 
+// slow time by changing dt. change gravity for different places . 
+// end time 5:04
+
+// implement circular motion , include tension in treats . on movement. 
+
+var pivot=Class.create({ 
+	initialize : function (x,y)
+	{
+		this.x=x;
+		this.y=y;
+	}
+});
+
+var thread=Class.create({
+	particle[];
+	initialize : function (l)
+	{
+		this.particle[];
+		this.length=100;
+		this.dm=0.01;
+
+
+	},
+
+	move : function()
+	{
+
+	}
+
+});
+
+
+var ball=Class.create({
+	initialize : function(id)
+	{	
+		this.dt=0.3;
+		this.x = window.innerHeight/2;
+		this.y = 3*window.innerHeight/4;
+		this.gx=0;
+		this.gy=10;
+		this.vx=0;
+		this.vy=0;
+		this.element=$(id);
+	},
+	move : function()
+	{
+		if(this.y>window.InnerHeight)
+			return;
+		this.vx=this.vx+this.gx*this.dt;
+		this.x=this.x + this.vx*this.dt;
+		this.vy=this.vy+this.gy*this.dt;
+		this.y=this.y - this.vy*this.dt;
+		this.element.style.left=this.x+"px";
+		this.element.style.bottom=this.y+"px";
+			return;
+	}
+});
+
+</script>
+<style>
+.b {
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	width:100px;
+	height:100px;
+	background:red;
+	border-radius:50%;
+}
+</style>
+<body>
+<div id="ball1" class="b"></div>
+</body>
+<script>
+var b1=new ball("ball1");
+setTimeout(move,0);
+function move()
+{
+	b1.move();
+	setTimeout(move,40);
+}
+</script>
